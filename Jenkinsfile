@@ -77,7 +77,6 @@ if(FULL_BUILD) {
 if(FULL_BUILD) {
     stage('Artifact Upload') {
         node {
-            unstash 'artifact'
 
             def pom = readMavenPom file: 'pom.xml'
             def file = "${pom.artifactId}-${pom.version}"
