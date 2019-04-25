@@ -48,7 +48,6 @@ if(FULL_BUILD) {
         node {
             withEnv(["PATH+MAVEN=${tool 'm3'}/bin"]) {
                 sh "mvn -B clean verify -Dsurefire.skip=true"
-                stash name: 'it_tests', includes: 'target/failsafe-reports/**'
             }
         }
     }
