@@ -21,7 +21,7 @@ stage('Build') {
                 sh "echo 'inside build'"
                 
                  if (isUnix()) {
-                     sh "mvn -B versions:set -DnewVersion=0.0.2-${BUILD_NUMBER}"
+                     sh "mvn -B versions:set -DnewVersion=petclinic${BUILD_NUMBER}"
          sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
       } else {
          bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
@@ -93,8 +93,9 @@ if(FULL_BUILD) {
                 nexusUrl: NEXUS_URL, 
                 nexusVersion: 'nexus3', 
                 protocol: 'http', 
-                repository: 'demoapp-rele'
-             
+                repository: 'demoapp-rele',
+                version: "petclinic${BUILD_NUMBER}"
+               
              }
        }
  }
