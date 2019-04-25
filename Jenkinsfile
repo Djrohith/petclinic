@@ -84,8 +84,8 @@ if(FULL_BUILD) {
                                                artifactId: 'petclinic', classifier: '',
                                                file: 'target/petclinic.war', type: 'war']],
                 credentialsId: '47bf81a6-31d4-41f6-8152-ad402379c823', 
-                groupId: 'petclinicjob', nexusUrl: "${NEXUS_URL}", nexusVersion: 'nexus3', 
-                protocol: 'http', repository: 'petapp-rele'
+                groupId: 'nexus', nexusUrl: "${NEXUS_URL}", nexusVersion: 'nexus2', 
+                protocol: 'http', repository: 'petapp-rele',version: '1',
 
              
         }
