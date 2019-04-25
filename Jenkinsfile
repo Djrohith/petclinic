@@ -81,12 +81,12 @@ if(FULL_BUILD) {
         node {
            
             
-            nexusArtifactUploader artifacts: [[groupId: 'soccer-versions', 
-                                               artifactId: 'soccer-stats', classifier: '',
-                                               file: 'target/soccer-stats-0.0.2-${BUILD_NUMBER}.war', type: 'war']],
-                credentialsId: 'a75e53f8-48ab-4c25-84b2-dfcb7981148b', 
+            nexusArtifactUploader artifacts: [[groupId: 'petclinic-versions', 
+                                               artifactId: 'petclinic', classifier: '',
+                                               file: 'target/petclinic-0.0.2-${BUILD_NUMBER}.war', type: 'war']],
+                credentialsId: '4d90de9b-964a-4014-901a-bb1a343ca79d', 
                 groupId: 'br.com.meetup.ansiblea75e53f8-48ab-4c25-84b2-dfcb7981148b', nexusUrl: "${NEXUS_URL}", nexusVersion: 'nexus3', 
-                protocol: 'http', repository: 'demoapp-rele', version: '0.0.2-${BUILD_NUMBER}'
+                protocol: 'http', repository: 'petapp-rele', version: '0.0.2-${BUILD_NUMBER}'
 
              
         }
@@ -100,9 +100,9 @@ stage('Deploy') {
         
 
        // http://54.70.187.156:8081/repository/demoapp-rele/br/com/meetup/ansible/soccer-stats/0.0.2-3/soccer-stats-0.0.2-3.war                           
-        def artifactUrl = "http://${NEXUS_URL}/repository/demoapp-rele/br/com/meetup/ansible/soccer-stats/0.0.2-${BUILD_NUMBER}/soccer-stats-0.0.2-${BUILD_NUMBER}.war"
+        def artifactUrl = "http://${NEXUS_URL}/repository/petapp-rele/br/com/meetup/ansible/petclinic/0.0.2-${BUILD_NUMBER}/petclinic-0.0.2-${BUILD_NUMBER}.war"
 
-        withEnv(["ARTIFACT_URL=${artifactUrl}", "APP_NAME='soccer-stats'"]) {
+        withEnv(["ARTIFACT_URL=${artifactUrl}", "APP_NAME='petclinic'"]) {
             echo "The URL is ${env.ARTIFACT_URL} and the app name is ${env.APP_NAME}"
 
             // install galaxy roles
