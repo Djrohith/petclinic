@@ -93,8 +93,7 @@ if(FULL_BUILD) {
                 nexusUrl: NEXUS_URL, 
                 nexusVersion: 'nexus3', 
                 protocol: 'http', 
-                repository: 'demoapp-rele', 
-     //           version: "1.0.1"        
+                repository: 'demoapp-rele',         
         }
     }
 }
