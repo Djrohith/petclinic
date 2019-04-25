@@ -80,13 +80,13 @@ if(FULL_BUILD) {
 
             def pom = readMavenPom file: 'pom.xml'
             def file = "${pom.artifactId}-${pom.version}"
-            def jar = "target/${file}.war"
+            def jar = "target/petclinic.war"
 
             sh "cp pom.xml ${file}.pom"
 
             nexusArtifactUploader artifacts: [
-                    [artifactId: "${pom.artifactId}", classifier: '', file: "target/${file}.war", type: 'war'],
-                    [artifactId: "${pom.artifactId}", classifier: '', file: "${file}.pom", type: 'pom']
+                    [artifactId: "${pom.artifactId}", classifier: '', file: "target/petclinic.war", type: 'war'],
+                    [artifactId: "${pom.artifactId}", classifier: '', file: "petclinic.pom", type: 'pom']
                 ], 
                 credentialsId: 'nexus', 
                 groupId: "${pom.groupId}", 
