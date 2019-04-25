@@ -85,7 +85,7 @@ if(FULL_BUILD) {
                                                file: 'target/petclinic.war', type: 'war']],
                 credentialsId: '47bf81a6-31d4-41f6-8152-ad402379c823', 
                 groupId: 'nexus', nexusUrl: "${NEXUS_URL}", nexusVersion: 'nexus2', 
-                protocol: 'http', repository: 'petapp-rele',version: '1',
+                protocol: 'http', repository: 'petapp-rele'
 
              
         }
