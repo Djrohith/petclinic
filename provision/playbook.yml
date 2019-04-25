@@ -1,0 +1,30 @@
+---
+- name: Install Java
+  hosts: app_server
+  become: yes
+  become_user: root
+  roles:
+    - geerlingguy.java
+
+- name: Download Application from Repo
+  hosts: app_server
+  become_user: root
+  become: yes
+  tasks:
+    - get_url: 
+        force: yes
+        url: "{{ ARTIFACT_URL }}"
+        dest: "/tmp/soccer-stats.war"
+    - stat: 
+        path: "/tmp/soccer-stats.war"
+
+- name: Setup Spring Boot
+  hosts: app_server
+  become: yes
+  become_user: root
+  roles: 
+    - { role: pellepelster.springboot-role,
+        spring_boot_file: "soccer-stats.war",
+        spring_boot_file_source: "/tmp/soccer-stats.war",
+        spring_boot_application_id: "soccer-stats"
+    } 
