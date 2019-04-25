@@ -94,9 +94,10 @@ if(FULL_BUILD) {
                 nexusVersion: 'nexus3', 
                 protocol: 'http', 
                 repository: 'demoapp-rele',         
-        }
-    }
-}
+        
+             }
+       }
+ }
 
 //if(FULL_BUILD) {
 //    stage('Artifact Upload') {
