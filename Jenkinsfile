@@ -74,25 +74,50 @@ if(FULL_BUILD) {
     }
 }**/
 
-
 if(FULL_BUILD) {
     stage('Artifact Upload') {
         node {
-           
-            
-            nexusArtifactUploader artifacts: [[groupId: 'petclinic', 
-                                               artifactId: 'petclinic', classifier: '',
-                                               file: 'target/petclinic.war', type: 'war']],
-                credentialsId: '47bf81a6-31d4-41f6-8152-ad402379c823', 
-                groupId: 'br.com.meetup.ansiblea75e53f8-48ab-4c25-84b2-dfcb7981148b', nexusUrl: "${NEXUS_URL}", nexusVersion: 'nexus2', 
-                protocol: 'http', repository: 'demoapp-rele'
+            unstash 'artifact'
 
-             
+            def pom = readMavenPom file: 'pom.xml'
+            def file = "${pom.artifactId}-${pom.version}"
+            def jar = "target/${file}.war"
+
+            sh "cp pom.xml ${file}.pom"
+
+            nexusArtifactUploader artifacts: [
+                    [artifactId: "${pom.artifactId}", classifier: '', file: "target/${file}.war", type: 'war'],
+                    [artifactId: "${pom.artifactId}", classifier: '', file: "${file}.pom", type: 'pom']
+                ], 
+                credentialsId: 'nexus', 
+                groupId: "${pom.groupId}", 
+                nexusUrl: NEXUS_URL, 
+                nexusVersion: 'nexus3', 
+                protocol: 'http', 
+                repository: 'demoapp-rele', 
+                version: "${pom.version}"        
         }
     }
 }
 
+//if(FULL_BUILD) {
+//    stage('Artifact Upload') {
+//       node {
+           
+            
+//            nexusArtifactUploader artifacts: [[groupId: 'petclinic', 
+//                                               artifactId: 'petclinic', classifier: '',
+//                                               file: 'target/petclinic.war', type: 'war']],
+//                credentialsId: '47bf81a6-31d4-41f6-8152-ad402379c823', 
+//                groupId: 'br.com.meetup.ansiblea75e53f8-48ab-4c25-84b2-dfcb7981148b', nexusUrl: "${NEXUS_URL}", nexusVersion: 'nexus2', 
+//                protocol: 'http', repository: 'demoapp-rele'
 
+             
+//        }
+//    }
+//}
+//
+//
 stage('Deploy') {
     node {
         
