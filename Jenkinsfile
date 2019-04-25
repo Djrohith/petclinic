@@ -78,15 +78,15 @@ if(FULL_BUILD) {
     stage('Artifact Upload') {
         node {
 
-            def pom = readMavenPom file: 'pom.xml'
-            def file = "${pom.artifactId}-${pom.version}"
+//            def pom = readMavenPom file: 'pom.xml'
+//            def file = "${pom.artifactId}-${pom.version}"
             def jar = "target/petclinic.war"
 
-            sh "cp pom.xml ${file}.pom"
+ //           sh "cp pom.xml ${file}.pom"
 
             nexusArtifactUploader artifacts: [
                     [artifactId: "${pom.artifactId}", classifier: '', file: "target/petclinic.war", type: 'war'],
-                    [artifactId: "${pom.artifactId}", classifier: '', file: "petclinic.pom", type: 'pom']
+ //                   [artifactId: "${pom.artifactId}", classifier: '', file: "petclinic.pom", type: 'pom']
                 ], 
                 credentialsId: '47bf81a6-31d4-41f6-8152-ad402379c823', 
                 groupId: "${pom.groupId}", 
