@@ -83,7 +83,7 @@ if(FULL_BUILD) {
             nexusArtifactUploader artifacts: [[groupId: 'petclinic', 
                                                artifactId: 'petclinic', classifier: '',
                                                file: 'target/petclinic.war', type: 'war']],
-                credentialsId: '4b1724c5-ca89-44f3-b286-1e4d8fa3153e', 
+                credentialsId: '47bf81a6-31d4-41f6-8152-ad402379c823', 
                 groupId: 'br.com.meetup.ansiblea75e53f8-48ab-4c25-84b2-dfcb7981148b', nexusUrl: "${NEXUS_URL}", nexusVersion: 'nexus3', 
                 protocol: 'http', repository: 'petapp-rele'
 
