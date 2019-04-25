@@ -85,7 +85,7 @@ if(FULL_BUILD) {
  //           sh "cp pom.xml ${file}.pom"
 
             nexusArtifactUploader artifacts: [
-                    [artifactId: "1.0.1", classifier: '', file: "target/petclinic.war", type: 'war'],
+                    [artifactId: "petclinic", classifier: '', file: "target/petclinic.war", type: 'war'],
  //                   [artifactId: "${pom.artifactId}", classifier: '', file: "petclinic.pom", type: 'pom']
                 ], 
                 credentialsId: '47bf81a6-31d4-41f6-8152-ad402379c823', 
@@ -94,7 +94,7 @@ if(FULL_BUILD) {
                 nexusVersion: 'nexus3', 
                 protocol: 'http', 
                 repository: 'demoapp-rele', 
-                version: "1.0.1"        
+     //           version: "1.0.1"        
         }
     }
 }
