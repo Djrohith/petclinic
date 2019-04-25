@@ -14,9 +14,9 @@
     - get_url: 
         force: yes
         url: "{{ ARTIFACT_URL }}"
-        dest: "/tmp/soccer-stats.war"
+        dest: "/tmp/petclinic.war"
     - stat: 
-        path: "/tmp/soccer-stats.war"
+        path: "/tmp/petclinic.war"
 
 - name: Setup Spring Boot
   hosts: app_server
@@ -24,7 +24,7 @@
   become_user: root
   roles: 
     - { role: pellepelster.springboot-role,
-        spring_boot_file: "soccer-stats.war",
-        spring_boot_file_source: "/tmp/soccer-stats.war",
-        spring_boot_application_id: "soccer-stats"
+        spring_boot_file: "petclinic.war",
+        spring_boot_file_source: "/tmp/petclinic.war",
+        spring_boot_application_id: "petclinic"
     } 
