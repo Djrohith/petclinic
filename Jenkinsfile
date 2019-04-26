@@ -80,7 +80,7 @@ if(FULL_BUILD) {
 
 //            def pom = readMavenPom file: 'pom.xml'
 //            def file = "${pom.artifactId}-${pom.version}"
-            def jar = "target/petclinic.war"
+              def jar = "target/petclinic.war"
 
  //           sh "cp pom.xml ${file}.pom"
 
