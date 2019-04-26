@@ -14,9 +14,9 @@
     - get_url: 
         force: yes
         url: "{{ ARTIFACT_URL }}"
-        dest: "/tmp/{{ APP_NAME }}.war"
+        dest: "/tmp/petclinic.war"
     - stat: 
-        path: "/tmp/{{ APP_NAME }}.war"
+        path: "/tmp/petclinic.war"
 
 - name: Setup Spring Boot
   hosts: app_server
