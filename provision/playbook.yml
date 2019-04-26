@@ -8,7 +8,7 @@
 
 - name: Download Application from Repo
   hosts: app_server
-  become_user: app_server
+  become_user: root
   become: yes
   tasks:
     - get_url: 
