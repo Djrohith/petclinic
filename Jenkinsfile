@@ -88,7 +88,7 @@ if(FULL_BUILD) {
                     [artifactId: "petclinic", classifier: '', file: "target/petclinic.war", type: 'war'],
  //                   [artifactId: "${pom.artifactId}", classifier: '', file: "petclinic.pom", type: 'pom']
                 ], 
-                credentialsId: '47bf81a6-31d4-41f6-8152-ad402379c823', 
+                credentialsId: 'f9703a7c-565d-4842-9848-c27c46e0fadd', 
                 groupId: "com.cg", 
                 nexusUrl: NEXUS_URL, 
                 nexusVersion: 'nexus3', 
