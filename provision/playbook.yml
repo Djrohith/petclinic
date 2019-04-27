@@ -23,7 +23,7 @@
   become: yes
   become_user: root
   roles: 
-    - { role: orachide.springboot-service,
+    - { role: pellepelster.springboot-role,
         spring_boot_file: "petclinic.war",
         spring_boot_file_source: "/tmp/petclinic.war",
         spring_boot_application_id: "petclinic"
