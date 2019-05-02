@@ -27,6 +27,7 @@
       copy:
        src: "/tmp/petclinic.war"
        dest: "/opt/tomcat/webapps/petclinic.war"
+       remote_src: no
        owner: root
        group: root
        mode: 0644
