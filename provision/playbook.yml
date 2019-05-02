@@ -25,8 +25,8 @@
   tasks:
     - name: copy
       copy:
-       src: /tmp/petclinic.war
-       dest: /opt/tomcat/webapps/petclinic.war
+       src: "/tmp/petclinic.war"
+       dest: "/opt/tomcat/webapps/petclinic.war"
        owner: root
        group: root
        mode: 0644
