@@ -17,7 +17,20 @@
         dest: "/tmp/petclinic.war"
     - stat: 
         path: "/tmp/petclinic.war"
-
+        
+- name: copying the war file into tomcat server
+  hosts: app_server
+  become_user: root
+  become: yes
+  tasks:
+    - name: copy
+      copy:
+       src: /tmp/petclinic.war
+       dest: /opt/tomcat/webapps/petclinic.war
+       owner: root
+       group: root
+       mode: 0644
+ 
 #- name: Setup Spring Boot
 #  hosts: app_server
 #  become: yes
