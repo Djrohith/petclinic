@@ -28,8 +28,8 @@
        src: "/tmp/petclinic.war"
        dest: "/opt/tomcat/webapps/petclinic.war"
        remote_src: yes
-       owner: root
-       group: root
+       owner: tomcat
+       group: tomcat
        mode: 0644
  
 #- name: Setup Spring Boot
