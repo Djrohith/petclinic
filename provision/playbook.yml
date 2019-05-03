@@ -2,13 +2,13 @@
 - name: Install Java
   hosts: app_server
   become: yes
-  become_user: automated
+  become_user: root
   roles:
     - geerlingguy.java
 
 - name: Download Application from Repo
   hosts: app_server
-  become_user: automated
+  become_user: root
   become: yes
   tasks:
     - get_url: 
@@ -20,7 +20,7 @@
         
 - name: copying the war file into tomcat server
   hosts: app_server
-  become_user: automated
+  become_user: root
   become: yes
   tasks:
     - name: copy
@@ -28,8 +28,8 @@
        src: "/tmp/petclinic.war"
        dest: "/opt/tomcat/webapps/petclinic.war"
        remote_src: yes
-       owner: automated
-       group: automated
+       owner: root
+       group: root
        mode: 0644
  
 #- name: Setup Spring Boot
