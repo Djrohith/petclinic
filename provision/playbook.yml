@@ -8,7 +8,7 @@
 
 - name: Download Application from Repo
   hosts: app_server
-  become_user: root
+  become_user: automated
   become: yes
   tasks:
     - get_url: 
@@ -20,7 +20,7 @@
         
 - name: copying the war file into tomcat server
   hosts: app_server
-  become_user: root
+  become_user: automated
   become: yes
   tasks:
     - name: copy
