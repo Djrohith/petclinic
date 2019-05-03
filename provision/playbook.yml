@@ -2,7 +2,7 @@
 - name: Install Java
   hosts: app_server
   become: yes
-  become_user: root
+  become_user: automated
   roles:
     - geerlingguy.java
 
