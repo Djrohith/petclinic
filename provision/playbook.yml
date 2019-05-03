@@ -30,7 +30,7 @@
        remote_src: yes
        owner: automated
        group: automated
-       mode: 0755
+       mode: 0655
  
 #- name: Setup Spring Boot
 #  hosts: app_server
